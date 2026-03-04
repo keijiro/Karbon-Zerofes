@@ -3,7 +3,6 @@ Shader "Karbon/Prefilter"
 HLSLINCLUDE
 
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-#include "Packages/com.unity.render-pipelines.core/ShaderLibrary/Color.hlsl"
 #include "Packages/jp.keijiro.bodypix/Shaders/Common.hlsl"
 #include "Assets/00 Common/Shaders/CustomRenderTexture.hlsl"
 
