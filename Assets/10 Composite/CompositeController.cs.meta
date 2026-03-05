@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 178f3653900b441181da24a51836f5cd
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - <BGPlane>k__BackingField: {instanceID: 0}
+  - <FGPlane1>k__BackingField: {instanceID: 0}
+  - <FGPlane2>k__BackingField: {instanceID: 0}
+  - <OverlayPlane>k__BackingField: {instanceID: 0}
+  - _shader: {fileID: 4800000, guid: 73b77468c94d646b781609085699fbb0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
