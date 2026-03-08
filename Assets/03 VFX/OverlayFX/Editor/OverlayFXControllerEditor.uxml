@@ -1,7 +1,4 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
-    <uie:PropertyField binding-path="&lt;SlitsEnabled&gt;k__BackingField"/>
-    <uie:PropertyField binding-path="&lt;BlotsEnabled&gt;k__BackingField"/>
-    <uie:PropertyField binding-path="&lt;WiperEnabled&gt;k__BackingField"/>
     <uie:PropertyField binding-path="&lt;Slits&gt;k__BackingField"/>
     <uie:PropertyField binding-path="&lt;Blots&gt;k__BackingField"/>
     <uie:PropertyField binding-path="&lt;WiperSpeed&gt;k__BackingField"/>

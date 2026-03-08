@@ -7,8 +7,8 @@ HLSLINCLUDE
 #include "Packages/jp.keijiro.noiseshader/Shader/SimplexNoise2D.hlsl"
 #include "Packages/jp.keijiro.noiseshader/Shader/SimplexNoise3D.hlsl"
 
-float3 _FxParam;
-float _FxSeed;
+half3 _FxParam;
+uint _FxSeed;
 
 half4 ApplyOverlay(float2 uv, bool mask)
 {
@@ -17,7 +17,7 @@ half4 ApplyOverlay(float2 uv, bool mask)
 
 bool SlitsMask(float2 uv)
 {
-    float n = 0;
+    half n = 0;
     float t = _Time.y * 1.8;
 
     n += SimplexNoise(float2(uv.x * 6, t));
@@ -29,26 +29,32 @@ bool SlitsMask(float2 uv)
 bool BlotsMask(float2 uv)
 {
     float2 asp = float2(960.0 / 256, 1);
-    float n = abs(SimplexNoise(float3(uv * asp * 1.1, _Time.y * 0.25)));
+    half n = abs(SimplexNoise(float3(uv * asp * 1.1, _Time.y * 0.25)));
 
     return n > 1 - _FxParam.y;
 }
 
+half3 Hash3(uint seed)
+{
+    return half3(Hash(seed), Hash(seed + 1), Hash(seed + 2));
+}
+
 bool WiperMask(float2 uv)
 {
-    uint seed = (uint)floor(_FxSeed);
-    float time = frac(_FxParam.z);
+    uint sw = JenkinsHash(_FxSeed);
+    if (sw & 1) uv = 1 - uv;
+    if (sw & 2) uv = uv.yx;
 
-    float y1 = smoothstep(Hash(seed + 0) / 2, Hash(seed + 1) / 2 + 0.5, time);
-    float y2 = smoothstep(Hash(seed + 2) / 2, Hash(seed + 3) / 2 + 0.5, time);
-    float y3 = smoothstep(Hash(seed + 4) / 2, Hash(seed + 5) / 2 + 0.5, time);
+    half t = frac(_FxParam.z);
+    half3 t_start = Hash3(_FxSeed + 1) / 2;
+    half3 t_end   = Hash3(_FxSeed + 4) / 2 + 0.5;
 
-    uint h = JenkinsHash(seed + 6);
-    if (h & 1) uv = 1 - uv;
-    if (h & 2) uv = uv.yx;
+    half3 v3 = smoothstep(t_start, t_end, t);
 
-    float thresh = lerp(lerp(y1, y2, saturate(uv.x * 2)), y3, saturate(uv.x * 2 - 1));
-    return (uv.y < thresh) ^ (_FxParam.z > 1);
+    half edge = lerp(v3.x, v3.y, saturate(uv.x * 2));
+    edge = lerp(edge, v3.z, saturate(uv.x * 2 - 1));
+
+    return (uv.y <= edge) ^ (_FxParam.z >= 1);
 }
 
 half4 Frag(Varyings input) : SV_Target

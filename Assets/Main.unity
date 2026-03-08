@@ -1034,12 +1034,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e99f510a24f1948069606fdae7736bc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::URPCameraEffect.OverlayFXController
-  <SlitsEnabled>k__BackingField: 0
-  <BlotsEnabled>k__BackingField: 0
-  <WiperEnabled>k__BackingField: 1
-  <Slits>k__BackingField: 0.461
-  <Blots>k__BackingField: 0.469
-  <WiperSpeed>k__BackingField: 1
+  <Slits>k__BackingField: 0
+  <Blots>k__BackingField: 0
+  <WiperSpeed>k__BackingField: 2
   _shader: {fileID: 4800000, guid: ca6a2ea2ff9034c16b438b0aea9ac9f4, type: 3}
 --- !u!1 &829016481
 GameObject:
