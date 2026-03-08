@@ -65,7 +65,7 @@
     },
     "com.unity.mathematics": {
       "version": "1.3.3",
-      "depth": 2,
+      "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
@@ -187,6 +187,16 @@
         "com.unity.render-pipelines.universal": "17.0.0"
       },
       "url": "https://registry.npmjs.com"
+    },
+    "jp.keijiro.flashglitch": {
+      "version": "file:jp.keijiro.flashglitch",
+      "depth": 0,
+      "source": "embedded",
+      "dependencies": {
+        "com.unity.mathematics": "1.2.0",
+        "com.unity.render-pipelines.universal": "17.0.0",
+        "jp.keijiro.noiseshader": "3.0.1"
+      }
     },
     "jp.keijiro.kino-glitch.universal": {
       "version": "1.0.0",

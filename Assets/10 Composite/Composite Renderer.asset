@@ -55,7 +55,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -5351138426631849938}
   - {fileID: -66656614916272776}
-  m_RendererFeatureMap: 2e78aad8f3efbcb5784dfc71293013ff
+  - {fileID: 1537705416658343192}
+  m_RendererFeatureMap: 2e78aad8f3efbcb5784dfc71293013ff18551de9ed065715
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 0}
   m_AssetVersion: 3
@@ -83,3 +84,17 @@ MonoBehaviour:
   m_DepthTextureFormat: 0
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &1537705416658343192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c909845ad9784348a62198f4b9a54e15, type: 3}
+  m_Name: FlashGlitchRendererFeature
+  m_EditorClassIdentifier: FlashGlitch::FlashGlitch.FlashGlitchRendererFeature
+  m_Active: 1
+  _passEvent: 600
