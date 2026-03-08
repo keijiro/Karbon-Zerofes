@@ -28,7 +28,10 @@ sealed class OverlayFXPass : ScriptableRenderPass
         var mat = controller.UpdateMaterial();
         if (mat == null) return;
 
-        var param = new RenderGraphUtils.BlitMaterialParameters(source, dest, mat, 0);
+        var pass = controller.PassIndex;
+        if (pass < 0 || pass >= mat.passCount) pass = 0;
+
+        var param = new RenderGraphUtils.BlitMaterialParameters(source, dest, mat, pass);
         renderGraph.AddBlitPass(param, passName: "Overlay FX");
         resourceData.cameraColor = dest;
     }
