@@ -3,7 +3,7 @@ using UnityEngine.Rendering.RenderGraphModule;
 using UnityEngine.Rendering.RenderGraphModule.Util;
 using UnityEngine.Rendering.Universal;
 
-namespace URPCameraEffect {
+namespace Karbon {
 
 sealed class OverlayFXPass : ScriptableRenderPass
 {
@@ -28,13 +28,10 @@ sealed class OverlayFXPass : ScriptableRenderPass
         var mat = controller.UpdateMaterial();
         if (mat == null) return;
 
-        var pass = controller.PassIndex;
-        if (pass < 0 || pass >= mat.passCount) pass = 0;
-
-        var param = new RenderGraphUtils.BlitMaterialParameters(source, dest, mat, pass);
+        var param = new RenderGraphUtils.BlitMaterialParameters(source, dest, mat, 0);
         renderGraph.AddBlitPass(param, passName: "Overlay FX");
         resourceData.cameraColor = dest;
     }
 }
 
-} // namespace URPCameraEffect
+} // namespace Karbon

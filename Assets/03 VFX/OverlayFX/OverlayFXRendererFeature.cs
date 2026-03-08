@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-namespace URPCameraEffect {
+namespace Karbon {
 
 public sealed class OverlayFXRendererFeature : ScriptableRendererFeature
 {
@@ -19,4 +19,4 @@ public sealed class OverlayFXRendererFeature : ScriptableRendererFeature
       => renderer.EnqueuePass(_pass);
 }
 
-} // namespace URPCameraEffect
+} // namespace Karbon
