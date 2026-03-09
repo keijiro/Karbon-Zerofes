@@ -219,6 +219,7 @@ GameObject:
   - component: {fileID: 291904335}
   - component: {fileID: 291904336}
   - component: {fileID: 291904337}
+  - component: {fileID: 291904338}
   m_Layer: 0
   m_Name: Composite Camera
   m_TagString: Untagged
@@ -371,7 +372,7 @@ MonoBehaviour:
   <VerticalJump>k__BackingField: 0
   <HorizontalShake>k__BackingField: 0
   <ColorDrift>k__BackingField: 0
-  <HorizontalRipple>k__BackingField: 0.268
+  <HorizontalRipple>k__BackingField: 0
   _shader: {fileID: 4800000, guid: 754922b6576fa498bbb2fbbebfe256ef, type: 3}
 --- !u!114 &291904337
 MonoBehaviour:
@@ -390,6 +391,86 @@ MonoBehaviour:
   <Hue>k__BackingField: 0.7
   <Seed>k__BackingField: 364
   _shader: {fileID: 4800000, guid: a06c33c946564cd19c5200c852eb0551, type: 3}
+--- !u!114 &291904338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 291904331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16ef0bdf4969642e6b835a966ce5b812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CompositeEffectController
+  _glitch1Action:
+    m_Name: Glitch 1
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 34f5b490-616f-43a0-aaaf-6a442a22a69b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: d329cc98-b041-45cb-b16d-5d7ecde93c0b
+      m_Path: <MidiDevice>/note080
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Glitch 1
+      m_Flags: 0
+    m_Flags: 0
+  _glitch2Action:
+    m_Name: Glitch 2
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 92cf64c8-279b-4488-b05f-9da84e3416d9
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7d926996-746e-46a1-ae27-f0d35e9729b2
+      m_Path: <MidiDevice>/note081
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Glitch 2
+      m_Flags: 0
+    m_Flags: 0
+  _glitch3Action:
+    m_Name: Glitch 3
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: aa73100f-e94b-405d-8136-2523f665d143
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 3a2a05e6-2b69-4dc0-8947-da9800e874e7
+      m_Path: <MidiDevice>/note082
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Glitch 3
+      m_Flags: 0
+    m_Flags: 0
+  _glitch4Action:
+    m_Name: Glitch 4
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 496e37fd-95a3-43dc-8d92-db24078a5609
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 8ca66ee7-b169-4e90-acc0-207913d9937d
+      m_Path: <MidiDevice>/note083
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Glitch 4
+      m_Flags: 0
+    m_Flags: 0
 --- !u!1 &305804264
 GameObject:
   m_ObjectHideFlags: 0
