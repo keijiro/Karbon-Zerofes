@@ -8,24 +8,17 @@ public sealed class PadInputHandler : MonoBehaviour
 {
     [field:SerializeField] public float ReleaseTime { get; set; } = 0.5f;
     [field:SerializeField, Min(1)] public float DecayExponent { get; set; } = 2.0f;
-    [Space]
-    [SerializeField] InputAction _input = null;
-    [Space]
-    [SerializeField] UnityEvent<float> _valueTarget = null;
 
-    const float kHoldTime = 0.5f;
+    [Space, SerializeField] InputAction _input = null;
+    [Space, SerializeField] UnityEvent<float> _valueTarget = null;
 
-    float _currentValue;
-    float _maxStrength;
-    float _attenuationRate;
+    const float kHoldTime = 0.2f;
 
+    float _value, _strength, _decayRate;
     double _startTime;
-    float _currentStrength;
-    bool _isPressed;
 
     void OnEnable()
     {
-        if (_input == null) return;
         _input.started += OnStarted;
         _input.performed += OnPerformed;
         _input.canceled += OnCanceled;
@@ -34,7 +27,6 @@ public sealed class PadInputHandler : MonoBehaviour
 
     void OnDisable()
     {
-        if (_input == null) return;
         _input.started -= OnStarted;
         _input.performed -= OnPerformed;
         _input.canceled -= OnCanceled;
@@ -44,49 +36,31 @@ public sealed class PadInputHandler : MonoBehaviour
     void OnStarted(InputAction.CallbackContext context)
     {
         _startTime = context.time;
-        _maxStrength = 0;
-        _isPressed = true;
+        _strength = context.ReadValue<float>();
     }
 
     void OnPerformed(InputAction.CallbackContext context)
-    {
-        _currentStrength = context.ReadValue<float>();
-        _maxStrength = Mathf.Max(_maxStrength, _currentStrength);
-    }
+      => _strength = Mathf.Max(_strength, context.ReadValue<float>());
 
     void OnCanceled(InputAction.CallbackContext context)
     {
-        _isPressed = false;
-        var duration = (float)(context.time - _startTime);
-
-        if (duration < kHoldTime)
+        if (context.time - _startTime < kHoldTime)
         {
-            // Case 1: Short press
-            _currentValue = 1.0f;
-            var decayTime = ReleaseTime * Mathf.Pow(_maxStrength, DecayExponent);
-            _attenuationRate = (decayTime > 1e-5f) ? (1.0f / decayTime) : float.MaxValue;
+            // Short press: Decay from 1
+            _value = 1;
+            _decayRate = 1 / (ReleaseTime * Mathf.Pow(_strength, DecayExponent));
         }
         else
         {
-            // Case 2: Long press
-            // _currentValue starts decaying from the current strength at release.
-            _attenuationRate = (ReleaseTime > 1e-5f) ? (1.0f / ReleaseTime) : float.MaxValue;
+            // Long press: Decay from current value
+            _decayRate = 2 / ReleaseTime;
         }
     }
 
     void Update()
     {
-        if (_isPressed)
-        {
-            _currentValue = _currentStrength;
-        }
-        else if (_currentValue > 0)
-        {
-            _currentValue -= _attenuationRate * Time.deltaTime;
-            if (_currentValue < 0) _currentValue = 0;
-        }
-
-        _valueTarget?.Invoke(_currentValue);
+        _valueTarget?.Invoke(_value);
+        _value = Mathf.Max(_input.ReadValue<float>(), _value - _decayRate * Time.deltaTime);
     }
 }
 
