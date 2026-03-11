@@ -446,7 +446,15 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e782df32-2682-4ac9-9e79-d7d80954f5b3
-      m_Path: <MidiDevice>/note076
+      m_Path: <MidiDevice>/note043
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    - m_Name: 
+      m_Id: 5c568c44-1df8-4511-bbe3-faea0d2fa8a5
+      m_Path: <MidiDevice>/note072
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -559,7 +567,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 2661244b-42e5-4a50-8e6e-b2afbbfc86e3
-      m_Path: <MidiDevice>/note081
+      m_Path: <MidiDevice>/note077
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1429,7 +1437,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e782df32-2682-4ac9-9e79-d7d80954f5b3
-      m_Path: <MidiDevice>/note086
+      m_Path: <MidiDevice>/note045
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -1599,7 +1607,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e782df32-2682-4ac9-9e79-d7d80954f5b3
-      m_Path: <MidiDevice>/note084
+      m_Path: <MidiDevice>/note039
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2107,7 +2115,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e782df32-2682-4ac9-9e79-d7d80954f5b3
-      m_Path: <MidiDevice>/note077
+      m_Path: <MidiDevice>/note068
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2390,7 +2398,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e782df32-2682-4ac9-9e79-d7d80954f5b3
-      m_Path: <MidiDevice>/note083
+      m_Path: <MidiDevice>/note046
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2482,7 +2490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 110b401dda72443f1a7fda05ab0fe505, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Karbon.PadInputHandler
-  <ReleaseTime>k__BackingField: 0.5
+  <ReleaseTime>k__BackingField: 0.04
   <DecayExponent>k__BackingField: 2
   _input:
     m_Name: Input
@@ -2494,7 +2502,15 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 454848b2-9bd3-4a29-b660-3c6b55a948e2
-      m_Path: <MidiDevice>/note080
+      m_Path: <MidiDevice>/note047
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input
+      m_Flags: 0
+    - m_Name: 
+      m_Id: a36663a1-c241-4cc4-ac43-0a68170bd1cc
+      m_Path: <MidiDevice>/note076
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2643,7 +2659,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e782df32-2682-4ac9-9e79-d7d80954f5b3
-      m_Path: <MidiDevice>/note085
+      m_Path: <MidiDevice>/note038
       m_Interactions: 
       m_Processors: 
       m_Groups: 
@@ -2758,7 +2774,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: e782df32-2682-4ac9-9e79-d7d80954f5b3
-      m_Path: <MidiDevice>/note082
+      m_Path: <MidiDevice>/note078
       m_Interactions: 
       m_Processors: 
       m_Groups: 
