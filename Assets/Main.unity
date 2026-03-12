@@ -1954,6 +1954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1280530077}
   - {fileID: 2039272841}
   - {fileID: 1696721799}
   - {fileID: 591164062}
@@ -2097,6 +2098,209 @@ MonoBehaviour:
   _triggerTarget:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &1280530076
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1280530077}
+  - component: {fileID: 1280530078}
+  m_Layer: 0
+  m_Name: Feedback
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1280530077
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280530076}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1060484555}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1280530078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1280530076}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f042253a24c448e3a7e6d62953ab8a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Karbon.FeedbackInputHandler
+  <BaseScale>k__BackingField: 1.02
+  <ScaleAmount>k__BackingField: 0.2
+  <RotationAmount>k__BackingField: 15
+  <OffsetAmount>k__BackingField: 0.1
+  <HueShiftAmount>k__BackingField: 0.1
+  <ExpandButton>k__BackingField:
+    m_Name: Expand Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 66cb95cd-1365-4073-9269-eeb64a962c56
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4fb5e1af-997d-431e-90a4-02712f8c528b
+      m_Path: <MidiDevice>/note064
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Expand Button
+      m_Flags: 0
+    m_Flags: 0
+  <ShrinkButton>k__BackingField:
+    m_Name: Shrink Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c03e3297-37f2-42c3-acc7-3ed7efe4a847
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2abf30ff-f7f7-41ad-ab7a-e82d078ff302
+      m_Path: <MidiDevice>/note060
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Shrink Button
+      m_Flags: 0
+    m_Flags: 0
+  <HueShiftButton>k__BackingField:
+    m_Name: Hue Shift Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 800ac665-1840-47f3-87f5-cf94eaa84373
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 18978b20-b123-48dd-99cd-635789bbc76d
+      m_Path: <MidiDevice>/note065
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Hue Shift Button
+      m_Flags: 0
+    m_Flags: 0
+  <RotateLeftButton>k__BackingField:
+    m_Name: Rotate Left Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 57bfbfbd-2255-4a6b-8701-192784d5f130
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 69d260d4-7cea-4d2b-b7b8-b76893a0a8ba
+      m_Path: <MidiDevice>/note097
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate Left Button
+      m_Flags: 0
+    m_Flags: 0
+  <RotateRightButton>k__BackingField:
+    m_Name: Rotate Right Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 0120db97-99c7-4d90-80c5-f4172d21a1be
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 896fec38-c2eb-4a08-bc0f-cbbe94c8dfc5
+      m_Path: <MidiDevice>/note099
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Rotate Right Button
+      m_Flags: 0
+    m_Flags: 0
+  <MoveUpButton>k__BackingField:
+    m_Name: Move Up Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: c6c3548a-a729-43dd-ab6c-e56052f2c3aa
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 4d94af1e-f643-4f11-80e0-e5386cc602f3
+      m_Path: <MidiDevice>/note098
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Up Button
+      m_Flags: 0
+    m_Flags: 0
+  <MoveDownButton>k__BackingField:
+    m_Name: Move Down Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 52c3c270-c73d-45a6-9e9f-b541b55c404e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 7a0f35ef-225d-4371-ab56-6979b46416b5
+      m_Path: <MidiDevice>/note094
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Down Button
+      m_Flags: 0
+    m_Flags: 0
+  <MoveLeftButton>k__BackingField:
+    m_Name: Move Left Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 800841c1-aaf7-4662-aca0-79eb53ed8ff2
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 02d1094b-776b-452a-8de5-de47ee43b7ff
+      m_Path: <MidiDevice>/note093
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Left Button
+      m_Flags: 0
+    m_Flags: 0
+  <MoveRightButton>k__BackingField:
+    m_Name: Move Right Button
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 869e16fe-745c-4e52-9448-5e9794118c5a
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 80fd242f-c737-4089-a712-7a36b01a4003
+      m_Path: <MidiDevice>/note095
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Move Right Button
+      m_Flags: 0
+    m_Flags: 0
+  _target: {fileID: 291904338}
 --- !u!1 &1321876229
 GameObject:
   m_ObjectHideFlags: 0
