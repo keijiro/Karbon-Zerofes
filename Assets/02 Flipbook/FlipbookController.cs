@@ -1,23 +1,42 @@
 using Klak.Hap;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using StrobePages;
 
 namespace Karbon {
 
-public sealed class FlipbookSourceSelector : MonoBehaviour
+public sealed class FlipbookController : MonoBehaviour
 {
     [SerializeField] string[] _videoFiles = null;
-    [SerializeField] float _playbackSpeed = 10;
     [SerializeField] MeshRenderer _cameraQuad = null;
     [SerializeField] MeshRenderer _videoQuad = null;
+    [SerializeField] StrobePagesController _target = null;
+    [SerializeField, Min(0.01f)] float _interval = 0.1f;
 
-    GameObject _playerObject;
+    HapPlayer _player;
     int _current;
+
+    async void Start()
+    {
+        while (true)
+        {
+            _target.StartPageTurn();
+            await Awaitable.WaitForSecondsAsync(_interval);
+            if (_player != null) AdvancePlayer();
+            await Awaitable.NextFrameAsync();
+        }
+    }
 
     void Update()
     {
         var num = GetInputNumber();
         if (num < 0 || num == _current) return;
+
+        if (_player != null)
+        {
+            Destroy(_player);
+            _player = null;
+        }
 
         if (num == 0)
         {
@@ -26,7 +45,7 @@ public sealed class FlipbookSourceSelector : MonoBehaviour
         }
         else
         {
-            RebuildPlayer(num - 1);
+            BuildPlayer(num - 1);
             _cameraQuad.enabled = false;
             _videoQuad.enabled = true;
         }
@@ -34,21 +53,21 @@ public sealed class FlipbookSourceSelector : MonoBehaviour
         _current = num;
     }
 
-    void RebuildPlayer(int videoIndex)
+    void BuildPlayer(int videoIndex)
     {
-        if (_playerObject != null) Destroy(_playerObject);
-
-        _playerObject = new GameObject("HAP Player");
-        _playerObject.transform.SetParent(transform, false);
-
         var filePath = _videoFiles[videoIndex % _videoFiles.Length];
+        _player = gameObject.AddComponent<HapPlayer>();
+        _player.targetRenderer = _videoQuad;
+        _player.targetMaterialProperty = "_BaseMap";
+        _player.Open(filePath, HapPlayer.PathMode.StreamingAssets);
+    }
 
-        var player = _playerObject.AddComponent<HapPlayer>();
-        player.targetRenderer = _videoQuad;
-        player.targetMaterialProperty = "_BaseMap";
-        player.speed = _playbackSpeed;
-        player.loop = true;
-        player.Open(filePath, HapPlayer.PathMode.StreamingAssets);
+    void AdvancePlayer()
+    {
+        if (!_player.isValid || _player.frameCount <= 0) return;
+        var length = (float)_player.streamDuration;
+        var dt = length / _player.frameCount;
+        _player.time = (_player.time + dt) % length;
     }
 
     static int GetInputNumber()
