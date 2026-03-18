@@ -46,7 +46,7 @@ is combined with the input video color data in the `Prefilter` shader.
 
 ## Launchpad Layout
 
-<img width="740" height="1020" alt="Launchpad Layout" src="https://github.com/user-attachments/assets/c60209e0-edd0-44a2-99f9-0ee6a199d614" />
+<img width="816" height="810" alt="Launchpad Layout" src="https://github.com/user-attachments/assets/e537d193-f36b-4116-922d-802ada9e5bdd" />
 
 A custom mode file for this layout is available at
 [`Extras/KarbonLaunchpad.syx`](Extras/KarbonLaunchpad.syx).
