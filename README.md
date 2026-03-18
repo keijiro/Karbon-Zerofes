@@ -43,3 +43,10 @@ The project uses [BodyPixSentis] to generate a human segmentation mask, which
 is combined with the input video color data in the `Prefilter` shader.
 
 [BodyPixSentis]: https://github.com/keijiro/BodyPixSentis
+
+## Launchpad Layout
+
+<img width="740" height="1020" alt="Launchpad Layout" src="https://github.com/user-attachments/assets/c60209e0-edd0-44a2-99f9-0ee6a199d614" />
+
+A custom mode file for this layout is available at
+[`Extras/KarbonLaunchpad.syx`](Extras/KarbonLaunchpad.syx).
