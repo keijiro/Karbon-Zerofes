@@ -1,5 +1,8 @@
 # Karbon
 
+![GIF1](https://github.com/user-attachments/assets/a2b21b05-42dd-4c5b-adfe-2faee656ffc8)
+![GIF2](https://github.com/user-attachments/assets/c3ee9c40-6751-402f-bc89-904d6c1da235)
+
 **Karbon** is a visual performance system built in Unity for the music event
 [UNDERCITY], held on March 17, 2026.
 
