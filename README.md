@@ -36,6 +36,9 @@ output.
 
 `CustomRenderTexture` is also used to process the input video stream.
 
+Block Diagram (click to enlarge)<br/>
+<img width="740" height="1020" alt="Block Diagram" src="https://github.com/user-attachments/assets/c60209e0-edd0-44a2-99f9-0ee6a199d614" />
+
 The project uses [BodyPixSentis] to generate a human segmentation mask, which
 is combined with the input video color data in the `Prefilter` shader.
 
