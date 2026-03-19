@@ -24,7 +24,7 @@ Notes:
   The setup used for the event relied on a [Roland UVC-01], but similar
   devices should also work. A standard webcam can be used as well.
 - Polyphonic aftertouch is required for effect control. The Launchpad Mini is
-  not sufficient because it does not support MPE.
+  not sufficient because it does not support velocity/aftertouch.
 
 [Roland UVC-01]: https://proav.roland.com/global/products/uvc-01/
 
