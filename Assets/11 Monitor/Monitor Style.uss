@@ -4,13 +4,13 @@
     left: 0;
     right: 0;
     bottom: 0;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .row-container {
     position: absolute;
     left: 0;
-    right: 0;
+    right: 25%;
     aspect-ratio: 3.75;
 }
 
@@ -43,6 +43,7 @@
 
 .controller-root {
     margin: 30px;
+    top: 50%;
 }
 
 .unity-text-element {
