@@ -111,6 +111,7 @@ Material:
     - _DitherStrength: 0.4
     - _DstBlend: 0
     - _DstBlendAlpha: 0
+    - _EdgeSoftness: 0.1
     - _EnvironmentReflections: 1
     - _FilterMode: 1
     - _GlossMapScale: 0

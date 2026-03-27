@@ -39,6 +39,7 @@
     bottom: 0;
     aspect-ratio: 0.75;
     -unity-background-scale-mode: scale-and-crop;
+    scale: -1 1;
 }
 
 .controller-root {

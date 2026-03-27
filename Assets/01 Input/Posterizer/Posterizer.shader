@@ -7,6 +7,7 @@ Properties
     _Threshold("Threshold", Range(0, 1)) = 0.5
     _DitherStrength("Dither Strength", Range(0, 1)) = 0.4
     _YOffset("Y Offset", Float) = 0
+    _EdgeSoftness("Edge Softness", Float) = 0
 
     [KeywordEnum(Disabled, Foreground, Background)]
     _FilterMode("Filter Mode", Float) = 0
@@ -28,6 +29,7 @@ float4 _MainTex_TexelSize;
 float _Threshold;
 float _DitherStrength;
 float _YOffset;
+float _EdgeSoftness;
 
 static const half kAlphaThreshold = 0.5h;
 
@@ -35,6 +37,8 @@ half4 FragUpdate(CustomRenderTextureVaryings i) : SV_Target
 {
     float2 uv = i.globalTexcoord.xy;
     uv.y += _YOffset;
+
+    float soften = 1 - saturate((1 - uv.x) / max(_EdgeSoftness, 1e-6));
 
     float srcAspect = _MainTex_TexelSize.y / _MainTex_TexelSize.x;
     float dstAspect = _CustomRenderTextureWidth / _CustomRenderTextureHeight;
@@ -50,16 +54,17 @@ half4 FragUpdate(CustomRenderTextureVaryings i) : SV_Target
         uv.x = (uv.x - 0.5) * scaleX + 0.5;
     }
 
+    uint2 psp = uint2(i.globalTexcoord.xy * _CustomRenderTextureInfo.xy);
+    float dither = DuotoneDither(psp);
+
     float4 src = SAMPLE_TEXTURE2D(_MainTex, sampler_LinearClamp, uv);
+    src.a -= soften * GenerateHashedRandomFloat(psp);
 
 #if defined(_FILTERMODE_FOREGROUND)
     if (src.a < kAlphaThreshold) return 0;
 #elif defined(_FILTERMODE_BACKGROUND)
     if (src.a >= kAlphaThreshold) return 0;
 #endif
-
-    uint2 psp = uint2(i.globalTexcoord.xy * _CustomRenderTextureInfo.xy);
-    float dither = DuotoneDither(psp);
 
     float lum = Luminance(LinearToSRGB(src.rgb));
     float bw = _Threshold < (lum + (dither - 0.5) * _DitherStrength);
