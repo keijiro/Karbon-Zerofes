@@ -752,7 +752,7 @@ MonoBehaviour:
     m_SingletonActionBindings:
     - m_Name: 
       m_Id: 261a93a5-4c0b-499c-88aa-7e66e3ce7389
-      m_Path: <MidiDevice>/note054
+      m_Path: <MidiDevice>/note053
       m_Interactions: 
       m_Processors: 
       m_Groups: 
