@@ -12,6 +12,7 @@ public sealed class PadInputHandler : MonoBehaviour
     [Space, SerializeField] InputAction _input = null;
     [Space, SerializeField] UnityEvent<float> _valueTarget = null;
     [Space, SerializeField] UnityEvent<float> _triggerTarget = null;
+    [Space, SerializeField] UnityEvent _releaseTarget = null;
 
     public float Value { get; private set; }
 
@@ -59,6 +60,8 @@ public sealed class PadInputHandler : MonoBehaviour
             // Long press: Decay from current value
             _decayRate = 2 / ReleaseTime;
         }
+
+        _releaseTarget?.Invoke();
     }
 
     void Update()

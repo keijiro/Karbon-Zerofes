@@ -12,6 +12,7 @@ public sealed class CompositeController : MonoBehaviour
     [field:SerializeField] public Texture FGPlane1 { get; set; }
     [field:SerializeField] public Texture FGPlane2 { get; set; }
     [field:SerializeField] public Texture OverlayPlane { get; set; }
+    [field:SerializeField] public Texture MaskPlane { get; set; }
     [field:SerializeField] public Color BGColor { get; set; } = Color.white;
     [field:SerializeField] public Color FGColor { get; set; } = Color.white;
 
@@ -33,6 +34,7 @@ public sealed class CompositeController : MonoBehaviour
         _material.SetTexture(ShaderID.FGPlane1, FGPlane1);
         _material.SetTexture(ShaderID.FGPlane2, FGPlane2);
         _material.SetTexture(ShaderID.OverlayPlane, OverlayPlane);
+        _material.SetTexture(ShaderID.MaskPlane, MaskPlane);
         _material.SetColor(ShaderID.BGColor, BGColor);
         _material.SetColor(ShaderID.FGColor, FGColor);
 

@@ -6,6 +6,7 @@ Shader "Hidden/Karbon/Composite"
         _FGPlane1("FG Plane1", 2D) = "black" {}
         _FGPlane2("FG Plane2", 2D) = "black" {}
         _OverlayPlane("Overlay Plane", 2D) = "black" {}
+        _MaskPlane("Mask Plane", 2D) = "black" {}
         _BGColor("BG Color", Color) = (1, 1, 1, 1)
         _FGColor("FG Color", Color) = (1, 1, 1, 1)
     }
@@ -19,6 +20,7 @@ TEXTURE2D(_BGPlane);
 TEXTURE2D(_FGPlane1);
 TEXTURE2D(_FGPlane2);
 TEXTURE2D(_OverlayPlane);
+TEXTURE2D(_MaskPlane);
 
 float4 _BGColor;
 float4 _FGColor;
@@ -31,9 +33,11 @@ void Vert(uint vertexID : VERTEXID_SEMANTIC,
     outTexCoord = GetFullScreenTriangleTexCoord(vertexID);
 }
 
-float4 AlphaOver(float4 dst, float4 src)
+float4 AlphaOver(float4 dst, float4 src, float3 tint, float mask)
 {
-    dst.rgb = lerp(dst.rgb, src.rgb, src.a);
+    float lum = Luminance(src.rgb);
+    lum = lerp(lum, 1 - lum, mask);
+    dst.rgb = lerp(dst.rgb, lum * tint, src.a);
     dst.a = src.a + dst.a * (1 - src.a);
     return dst;
 }
@@ -47,12 +51,13 @@ half4 Frag(float4 position : SV_Position,
     float4 fg1 = SAMPLE_TEXTURE2D(_FGPlane1, sampler_LinearClamp, uv);
     float4 fg2 = SAMPLE_TEXTURE2D(_FGPlane2, sampler_LinearClamp, uv);
     float4 ov = SAMPLE_TEXTURE2D(_OverlayPlane, sampler_LinearClamp, uv);
+    float mask = SAMPLE_TEXTURE2D(_MaskPlane, sampler_LinearClamp, uv).a;
 
     float4 comp = 0;
 
-    comp = AlphaOver(comp, float4(Luminance(bg.rgb) * _BGColor.rgb, bg.a));
-    comp = AlphaOver(comp, float4(Luminance(fg1.rgb) * _FGColor.rgb, fg1.a));
-    comp = AlphaOver(comp, float4(Luminance(fg2.rgb) * _FGColor.rgb, fg2.a));
+    comp = AlphaOver(comp, bg,  _BGColor.rgb, mask);
+    comp = AlphaOver(comp, fg1, _FGColor.rgb, mask);
+    comp = AlphaOver(comp, fg2, _FGColor.rgb, mask);
 
     float3 screened = 1 - (1 - comp.rgb) * (1 - ov.rgb);
     comp.rgb = lerp(comp.rgb, screened, ov.a);

@@ -10,6 +10,7 @@ static class ShaderID
     public static readonly int FGPlane1 = Shader.PropertyToID("_FGPlane1");
     public static readonly int FGPlane2 = Shader.PropertyToID("_FGPlane2");
     public static readonly int OverlayPlane = Shader.PropertyToID("_OverlayPlane");
+    public static readonly int MaskPlane = Shader.PropertyToID("_MaskPlane");
     public static readonly int BGColor = Shader.PropertyToID("_BGColor");
     public static readonly int FGColor = Shader.PropertyToID("_FGColor");
 }
