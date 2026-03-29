@@ -4470,13 +4470,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Karbon.FlipbookSourceSelector
   _videoFiles:
-  - Flower.mov
+  - Splash.mov
   - Staircase.mov
   - Shoe.mov
   - Tube.mov
   - Graffiti.mov
   - Eye.mov
-  - Bird.mov
+  - Chain.mov
+  - Camera.mov
   _cameraQuad: {fileID: 408121932}
   _videoQuad: {fileID: 1472467970}
   _target: {fileID: 1411473422}
