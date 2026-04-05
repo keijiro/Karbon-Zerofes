@@ -7,6 +7,7 @@
             <engine:VisualElement name="right-column" class="right-column" style="background-image: url(&quot;project://database/Assets/01%20Input/Posterizer/Portrait.asset?fileID=8600000&amp;guid=ca7835b2054cd4c509f6e01f8144854f&amp;type=2#Portrait&quot;);"/>
         </engine:VisualElement>
     </engine:VisualElement>
+    <engine:VisualElement name="source-preview" class="source-preview" style="background-image: url(&quot;project://database/Assets/Source.renderTexture?fileID=8400000&amp;guid=a1a0df4e1a01b43019e7f33a96837d7d&amp;type=2#Source&quot;);"/>
     <engine:VisualElement name="controller-root" class="controller-root">
         <engine:DropdownField label="Video Source" name="source-selector" data-source-type="Karbon.SourceSelector, Assembly-CSharp">
             <Bindings>

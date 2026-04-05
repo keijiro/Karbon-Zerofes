@@ -1,7 +1,15 @@
+.source-preview {
+    position: absolute;
+    right: 64px;
+    bottom: 64px;
+    width: 640px;
+    height: 360px;
+}
+
 .root-container {
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 64px;
+    left: 64px;
     right: 0;
     bottom: 0;
     justify-content: flex-start;
